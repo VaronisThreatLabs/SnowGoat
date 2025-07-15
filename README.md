@@ -1,5 +1,7 @@
 # <p align="center">Operation Frostbyte</p>
-![Operation Frostbyte](guides_media/snowgoat_game_logo.png)
+<p align="center">
+<img src="guides_media/snowgoat_game_logo.png" alt="Operation Frostbyte" style="width: 60%; max-width: 600px; height: auto;">
+</p>
 ### <p align="center">AKA SnowGoat</p>
 
 A misconfigured, CTF-like, Snowflake environment.
