@@ -1,22 +1,22 @@
-# <p align="center">Operation Frostbyte</p>
 <p align="center">
 <img src="guides_media/snowgoat_game_logo.png" alt="Operation Frostbyte" style="width: 60%; max-width: 600px; height: auto;">
 </p>
+
 ### <p align="center">AKA SnowGoat</p>
 
 A misconfigured, CTF-like, Snowflake environment.
 
 ## Table of Contents
 
-- [Installation](#Installation)
-  - [Prerequisites](#Prerequisites)
-  - [Configuration](#Configuration)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Configuration](#configuration)
   - [Provisioning SnowGoat](#provisioning-snowgoat)
-- [Usage](#Usage)
+- [Usage](#usage)
   - [Main Objective](#main-objective)
 - [References](#references)
 - [Support](#support)
-  - [Limitations](#known-issues)
+  - [Limitations](#limitations)
 
 ## Installation
 *This guide applies to all operating systems. If you are using Windows, you should use WSL (Windows Subsystem for Linux). Install WSL(https://aka.ms/wslinstall) by following Microsoft’s instructions:You must also install the AWS CLI and Terraform inside your WSL environment.*
@@ -102,7 +102,7 @@ After setting up your cloud-services accounts and installed the required softwar
 ![AWS Security Credentials](guides_media/aws-login-user-sec-creds.png)
 
 4. Choose "Create Access Keys"
-5. Copy these credentials and export/SET them into environment variables for example:
+5. Copy these credentials and export them into environment variables for example:
 ```shell
 export AWS_ACCESS_KEY_ID="<access_key_id>"
 export AWS_SECRET_ACCESS_KEY="<secret_access_key>"
@@ -115,10 +115,10 @@ export AWS_REGION="<aws-region>"
 2. Locate the AWS account that will be used by terraform to provision some of SnowGoat's resources
 3. After clicking on the target AWS account, locate the role you will be using
 4. Select "Access Keys"
-5. Follow the instructions and export/SET credentials to environment variables 
+5. Follow the instructions and export credentials to environment variables 
 
 #### Snowflake
-**export/SET the following environment variables, using the ACCOUNTADMIN user, created in previous steps:**
+**export the following environment variables, using the ACCOUNTADMIN user, created in previous steps:**
 
 Windows users should run WSL before the following steps:
 ```shell
