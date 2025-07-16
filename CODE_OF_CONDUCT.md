@@ -22,7 +22,7 @@ This Code of Conduct applies within all project spaces—online and offline—an
 
 ## Enforcement
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at:
-- dl-github-security@varonis.com
+- dl-security-report@varonis.com
 
 All complaints will be reviewed and investigated promptly and fairly. 
 

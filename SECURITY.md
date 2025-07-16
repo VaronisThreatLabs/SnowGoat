@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in this project, please report it responsibly: 
 
-- Email: dl-github-security@varonis.com
+- Email: dl-security-report@varonis.com
 - Subject: Security Vulnerability Report – SnowGoat
 - Include:
   - A detailed description of the issue
