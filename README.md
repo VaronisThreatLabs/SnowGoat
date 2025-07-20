@@ -99,7 +99,9 @@ After setting up your cloud-services accounts and installed the required softwar
 2. Click on your username, on the right-upper side of the screen
 3. Choose "Security Credentials"
 
-![AWS Security Credentials](guides_media/aws-login-user-sec-creds.png)
+<p align="center">
+<img src="guides_media/aws-login-user-sec-creds.png" alt="Operation Frostbyte" style="width: 60%; max-width: 600px; height: auto;">
+</p>
 
 4. Choose "Create Access Keys"
 5. Copy these credentials and export them into environment variables for example:
@@ -108,7 +110,6 @@ export AWS_ACCESS_KEY_ID="<access_key_id>"
 export AWS_SECRET_ACCESS_KEY="<secret_access_key>"
 export AWS_REGION="<aws-region>"
 ```
-
 
 **If you are signing-in via SSO, using the AWS access portal:**
 1. Log in to AWS via your identity-provider
@@ -138,7 +139,9 @@ You can find these details after logging in to your new Snowflake account by:
 1. Clicking your name on the left-bottom side of the screen
 2. Hover over your account name
 3. Click on "View account details"
-![Snowflake - Account details location](guides_media/snowflake-find-account-details.png)
+<p align="center">
+<img src="guides_media/snowflake-find-account-details.png" alt="Operation Frostbyte" style="width: 60%; max-width: 600px; height: auto;">
+</p>
 4. Use the account details to locate the needed values for the environment variables
 5. Also, the "Account/Server URL" value will be the one you will use to connect to Snowflake's UI, using your account's context
 
@@ -146,8 +149,8 @@ You can find these details after logging in to your new Snowflake account by:
 After fulfilling all prerequisites and installing dependencies, we can now provision Snowgoat:
 
 ```shell
-git clone https://github/PLACEHOLDER_FOR_SNOWGOAT_IN_GITHUB
-cd snowgoat-infra/
+git clone https://github.com/VaronisThreatLabs/SnowGoat.git
+cd Snowgoat/
 terraform init
 terraform apply -auto-approve
 ```
@@ -160,11 +163,13 @@ Find your entry point into Snowgoat!
 Start by using the credentials of the Snowflake user `blizzard_engineer`, that were printed by terraform on provisioning, to log in to Snowflake!
 
 ### Main objective
-![SnowGoat](guides_media/snowgoat_logo.png)
+<p align="center">
+<img src="guides_media/snowgoat_logo.png" alt="Operation Frostbyte" style="width: 60%; max-width: 600px; height: auto;">
+</p>
 
 The main objective of this educational challenge is to leak data! More specifically, the `SSN` column, of one of the sensitive tables, filled with the **Glacier Corp** customers' Social-Security-Number!
 
-Help **Glacier Corp** to understand how it is possible to leak their sensitive data in Operation Frostbyte!
+Help **Glacier Corp** understand how it is possible to leak their sensitive data in Operation Frostbyte!
 
 ### Flags
 Snowgoat's flags are not consistent in format. Some flags could represent a user name, some could represent sensitive data.
@@ -173,6 +178,8 @@ The following are the flag formats in SnowGoat:
 - **Flag 2**: User Name
 - **Flag 3**: SSN Value
 - **Flag 4**: URL
+
+Use the [Operation Frostbyte](https://www.varonis.com/frostbyte) website to verify your flags and earn a spot on the leaderboard!
 
 ## References
 
@@ -192,10 +199,13 @@ The following documentation articles and tools should help you solve the challen
 
 ## Support
 ### Limitations
-1. Please avoid changing and adding resources manually, this could cause sync issues with the Terraform state and break the proviosining (apply/destroy)
+1. Please avoid changing and adding resources manually, this could cause sync issues with the Terraform state and break the provisioning (apply/destroy).
 2. If encountered a sync issue in Terraform, manually delete `*.tfstate`, `*.tfstate.backup`, `*.lock`, `.terraform/` files and folders.
    1. After deleting these files and folders, execute `terraform init` again, to reinitialize providers.
    2. If after destruction, there are still resources left in the services (usually only AWS role/policy), please remove them by hand. This is a rare behaviour.
+3. In cases of `sts:AssumeRole` errors, when using a stage in Snowflake:
+   1. This issue usually happens when Snowflake is trying to assume the role Terraform has provisioned for its Trusted Relationship, though Snowflake cannot access the STS endpoint for this region, as it is not enabled on your AWS account. 
+   2. If your Snowflake instance is hosted at an AWS non-enabled-by-default region (e.g. Zurich: 'eu-central-2'), then enable this region on your AWS account as well.
 
 
 
