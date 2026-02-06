@@ -349,7 +349,6 @@ resource "snowflake_authentication_policy" "auth_policy_mfa_only" {
   database = snowflake_database.db_glacier_corp.name
   schema = snowflake_schema.schema_snowhub_internal.name
   name = "MFA_ONLY"
-  mfa_authentication_methods = ["SAML", "PASSWORD"]
   client_types = ["SNOWSQL"]
   security_integrations = ["ALL"]
 }
